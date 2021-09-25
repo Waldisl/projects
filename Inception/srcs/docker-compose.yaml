@@ -1,0 +1,62 @@
+version: '3.7'
+networks:
+ msunspot_net:
+  name: msunspot_net
+  driver: bridge
+
+services:
+ mysql:
+  image: mariadb
+  volumes:
+   - mariadb:/var/lib/mysql
+  env_file: .env
+  build: ./requirements/mariadb/
+  restart: always
+  networks:
+   - msunspot_net
+  container_name: mariadb
+  expose:
+   - "3306"
+ wordpress:
+  image: wordpress
+  volumes:
+   - wordpress:/var/www/html
+  env_file: .env
+  depends_on:
+   - mysql
+  build: ./requirements/wordpress/
+  restart: always
+  networks:
+   - msunspot_net
+  container_name: wordpress
+  expose:
+   - "9000"
+ nginx:
+  image: nginx
+  build: ./requirements/nginx/
+  volumes:
+   - wordpress:/var/www/html
+  ports:
+   - 443:443
+  depends_on:
+   - wordpress
+  networks:
+   - msunspot_net
+  container_name: nginx
+  restart: always
+
+volumes:
+ wordpress:
+  driver: local
+  name: wordpress
+  driver_opts:
+   type: none
+   o: bind
+   device: /home/msunspot/data/wp
+ mariadb:
+  driver: local
+  name: mariadb
+  driver_opts:
+   type: none
+   o: bind
+   device: /home/msunspot/data/db

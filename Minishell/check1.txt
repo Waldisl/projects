@@ -1,0 +1,168 @@
+ПРОСТЫЕ КОМАНДЫ БЕЗ АРГУМЕНТОВ
+
+/bin/ls
+/bin/cat
+пустая команда
+пустая команда с пробелами и табуляциями
+
+
+ПРОСТЫЕ КОМАНДЫ С АРГУМЕНТАМИ
+
+/bin/ls -l
+/bin/ls -la
+
+ECHO С И БЕЗ АРГУМЕНТОВ
+
+echo hello
+echo -n hello
+echo -nnnnnn -nn hello
+echo hello dddd
+
+EXIT С И БЕЗ АРГУМЕНТОВ
+
+exit
+exit sdfsd
+exit 123
+exit 123 123
+
+ВОЗВРАЩАЕМОЕ ЗНАЧЕНИЕ
+
+/bin/ls 
+echo $?
+/bin/ls -l
+echo $?
+/bin/lsfi lethatdoesntexist
+echo $?
+expr $? + $?
+
+СИГНАЛЫ
+
+пустая строка
+ctrl-C
+ctrl-D
+ctrl-\
+
+строка с текстом
+ctrl-C
+ctrl-D
+ctrl-\
+
+команда cat
+ctrl-C
+ctrl-D
+ctrl-\
+
+ДВОЙНЫЕ КАВЫЧКИ
+
+echo "cat lol.c | cat> lol.c"
+echo "/                 /"
+echo $
+
+ОДИНАРНЫЕ КАВЫЧКИ
+
+echo 'hello'
+echo 'cat lol.c | cat> lol.c'
+echo ''
+echo ' /    /'
+echo '$USER'
+
+ENV
+
+env
+
+EXPORT
+
+export
+export $TEST="123"
+export $TEST="pfasd"
+env
+
+UNSET
+
+unset PATH
+ls
+export PATH="/home/waldis/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+ls
+env
+export
+
+CD & pwd
+
+pwd
+cd .
+pwd
+cd ..
+pwd
+cd каталог
+pwd
+ls
+cd safga
+pwd
+
+
+cd ~/Downloads
+pwd
+ls
+
+
+ПУТЬ К СРЕДЕ
+
+cat
+ls
+wc
+awk
+
+export $PATH=""
+ls 
+wc 
+awk
+
+
+Задайте для $ PATH значение нескольких каталогов (каталог1: каталог2) и убедитесь, что каталоги проверяются по порядку.
+слева направо
+
+ПЕРЕНАПРАВЛЕНИЯ
+
+pwd>12
+cat<12
+pwd>>12
+pwd>>12
+pwd>>12
+cat<12
+
+pwd >> >> >> 12
+pwd > > 12
+ls
+cat<<12
+
+
+PIPES
+
+cat 12 | grep me
+cat 12 | grep ty
+cat 12 | cat -e | cat -e | cat -e
+ls fi lethatdoesntexist | grep bla 
+pwd>>12 | cat 12
+
+
+Go Crazy and history
+
+ahgsdf ctrl-C история должна быть пуста
+посмотреть историю команд
+Выполните команды, которые не должны работать как 'dsbksdgbksdghsd', и проверьте, не вылетает ли оболочка, и печатает
+ошибка
+hjvbsd dsvjnsdjkvn sdjkvbjksd dvbhjsdb sdkhjvb jbjk-n  -f- -s-d-f- -fs-a-dv[fd-v-dfv-pa- lpkLl v;;		k;lfdkvsp
+
+
+
+ПЕРЕМЕННЫЕ СРЕДЫ
+
+echo $USER
+echo $
+echo "sdfsf $USER sdfs"
+echo "$USER"
+echo '$USER'
+
+
+
+
